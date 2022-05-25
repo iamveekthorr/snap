@@ -46,19 +46,9 @@ export const NavigationItems = styled.ul`
   & > :not(:last-child) {
     margin-bottom: 16px;
   }
-`;
 
-export const NavigationItemsOptions = styled.li`
-  list-style: none;
-  cursor: pointer;
-
-  & > p {
-    display: flex;
-    align-items: center;
-
-    & > svg {
-      margin-left: calc(16rem / 16);
-    }
+  & li {
+    list-style: none;
   }
 `;
 

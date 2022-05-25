@@ -1,24 +1,21 @@
 import { FC, useEffect, useState, useRef } from 'react';
 
+import NavigationToggleItem from '../../navigation-items/navigation.components';
+
 import {
   CloseButtonContainer,
   MobileNavBar,
   Navigation,
   NavigationItems,
-  NavigationItemsOptions,
   Overlay,
 } from './nav.mobile.styles';
 
 import { ReactComponent as HamBurger } from '../../../assets/icon-menu.svg';
 import { ReactComponent as CloseIcon } from '../../../assets/icon-close-menu.svg';
 import { ReactComponent as Logo } from '../../../assets/logo.svg';
-import { ReactComponent as ArrowUp } from '../../../assets/icon-arrow-down.svg';
-import { ReactComponent as ArrowDown } from '../../../assets/icon-arrow-up.svg';
 
 const MobileNav: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const [isOptionOpen, setOptionOpen] = useState<boolean>(false);
 
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -49,29 +46,23 @@ const MobileNav: FC = () => {
               <CloseIcon onClick={() => setIsOpen((prev) => !prev)} />
             </CloseButtonContainer>
             <NavigationItems>
-              <NavigationItemsOptions
-                role="navigation"
-                onClick={() => setOptionOpen((next) => !next)}
-              >
-                <p>features {isOptionOpen ? <ArrowDown /> : <ArrowUp />}</p>
-                {isOptionOpen && (
-                  <ul>
-                    <li>todo list</li>
-                    <li>calendar</li>
-                    <li>reminder</li>
-                    <li>planning</li>
-                  </ul>
-                )}
-              </NavigationItemsOptions>
-              <NavigationItemsOptions role="navigation">
-                <p> company {isOptionOpen ? <ArrowDown /> : <ArrowUp />}</p>
-              </NavigationItemsOptions>
-              <NavigationItemsOptions role="navigation">
-                careers
-              </NavigationItemsOptions>
-              <NavigationItemsOptions role="navigation">
-                about
-              </NavigationItemsOptions>
+              <NavigationToggleItem itemName="features">
+                <ul>
+                  <li>todo list</li>
+                  <li>calendar</li>
+                  <li>reminder</li>
+                  <li>planning</li>
+                </ul>
+              </NavigationToggleItem>
+              <NavigationToggleItem itemName="company">
+                <ul>
+                  <li>history</li>
+                  <li>our team</li>
+                  <li>blog</li>
+                </ul>
+              </NavigationToggleItem>
+              <li role="navigation">careers</li>
+              <li role="navigation">about</li>
             </NavigationItems>
           </Navigation>
         </>
