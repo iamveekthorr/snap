@@ -7,12 +7,19 @@ import {
   MobileNavBar,
   Navigation,
   NavigationItems,
+  NavigationOptionListItem,
+  NavigationOptionsList,
   Overlay,
 } from './nav.mobile.styles';
 
 import { ReactComponent as HamBurger } from '../../../assets/icon-menu.svg';
 import { ReactComponent as CloseIcon } from '../../../assets/icon-close-menu.svg';
 import { ReactComponent as Logo } from '../../../assets/logo.svg';
+
+import { ReactComponent as Calendar } from '../../../assets/icon-calendar.svg';
+import { ReactComponent as Reminders } from '../../../assets/icon-reminders.svg';
+import { ReactComponent as ToDoList } from '../../../assets/icon-todo.svg';
+import { ReactComponent as Planning } from '../../../assets/icon-planning.svg';
 
 const MobileNav: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -47,19 +54,33 @@ const MobileNav: FC = () => {
             </CloseButtonContainer>
             <NavigationItems>
               <NavigationToggleItem itemName="features">
-                <ul>
-                  <li>todo list</li>
-                  <li>calendar</li>
-                  <li>reminder</li>
-                  <li>planning</li>
-                </ul>
+                <NavigationOptionsList>
+                  <NavigationOptionListItem>
+                    {' '}
+                    <ToDoList title="todo list" />
+                    todo list
+                  </NavigationOptionListItem>
+                  <NavigationOptionListItem>
+                    <Calendar title="calendar" /> calendar
+                  </NavigationOptionListItem>
+                  <NavigationOptionListItem>
+                    {' '}
+                    <Reminders title="reminder" />
+                    reminder
+                  </NavigationOptionListItem>
+                  <NavigationOptionListItem>
+                    {' '}
+                    <Planning title="planning" />
+                    planning
+                  </NavigationOptionListItem>
+                </NavigationOptionsList>
               </NavigationToggleItem>
               <NavigationToggleItem itemName="company">
-                <ul>
+                <NavigationOptionsList>
                   <li>history</li>
                   <li>our team</li>
                   <li>blog</li>
-                </ul>
+                </NavigationOptionsList>
               </NavigationToggleItem>
               <li role="navigation">careers</li>
               <li role="navigation">about</li>

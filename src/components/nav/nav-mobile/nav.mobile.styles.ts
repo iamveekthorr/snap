@@ -42,12 +42,14 @@ export const NavigationItems = styled.ul`
   font-size: calc(16.5rem / 16);
   font-weight: 700;
   color: hsl(0, 0%, 41%);
+  cursor: pointer;
 
   & > :not(:last-child) {
     margin-bottom: 16px;
   }
 
   & li {
+    cursor: pointer;
     list-style: none;
   }
 `;
@@ -57,4 +59,21 @@ export const CloseButtonContainer = styled.span`
   justify-content: flex-end;
   margin-bottom: calc(32rem / 16);
   cursor: pointer;
+`;
+
+export const NavigationOptionsList = styled.ul`
+  padding: calc(16rem / 16);
+
+  & > *:not(:last-child) {
+    margin-bottom: calc(16rem / 16);
+  }
+`;
+
+export const NavigationOptionListItem = styled.li`
+  display: flex;
+  align-items: center;
+
+  & > :first-child {
+    margin-right: calc(16rem / 16);
+  }
 `;

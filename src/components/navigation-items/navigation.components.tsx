@@ -19,9 +19,10 @@ const NavigationToggleItem: FC<INavigationItemsProps> = ({
   const [toggle, doToggle] = useToggle();
 
   return (
-    <NavigationItemsOptions onClick={doToggle}>
+    <NavigationItemsOptions onClick={doToggle} role="navigation">
       <p>
-        {itemName} {toggle ? <ArrowDown /> : <ArrowUp />}
+        {itemName}
+        {toggle ? <ArrowDown title="icon up" /> : <ArrowUp title="icon down" />}
       </p>
       {toggle && children}
     </NavigationItemsOptions>
